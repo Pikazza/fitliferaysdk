@@ -1,0 +1,13 @@
+#*
+This file allows you to override and define new Velocity variables.
+*#
+
+#set( $roles = $serviceLocator.findService("com.liferay.portal.service.RoleLocalService").getUserRoles( $user_id ) )
+
+#set ($userService = $serviceLocator.findService("com.liferay.portal.service.UserLocalService"))
+#set($user = $userService.getUserById( $getterUtil.getLong( $user_id ) ) ) 
+
+##set ($roleService = $serviceLocator.findService("com.liferay.portal.service.RoleLocalService"))
+##set ($adminRole = $roleService.getRole($company.getCompanyId(), "Administrator"))
+##set ($userIsAdmin = $userService.hasRoleUser($adminRole.getRoleId(), $user.getUserId()))
+##set($userLocalService = $serviceLocator.findExceptionSafeService("com.liferay.portal.service.UserLocalService"))

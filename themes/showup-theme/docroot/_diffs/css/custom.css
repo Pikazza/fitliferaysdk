@@ -1,0 +1,26 @@
+/* This file allows you to override default styles in one central location for easier upgrade and maintenance. */
+
+.aui .portlet-boundary_58_ .portlet-borderless-container {
+	height:100% !important;
+	position:fixed;
+	width:100%;
+	top:0;
+} 
+.aui .alert-error { background:#fff; border:none; color: #f48366; padding: 0; text-align: center; }
+.aui .portlet-topper {display:none;}
+
+  #portlet_new-password .errorBox { margin-left: 0; }
+/*.aui .login-block#login-page {     -ms-flex-align: flex-start;
+    -webkit-align-items: flex-start;
+    -webkit-box-align: flex-start;
+    align-items: flex-start; } */  
+.alert.alert-success { text-align: center; }
+
+.aui #navigation {overflow-y: auto;}
+/* .aui #close-trigger{top:83px;} */
+
+.aui .dashboard-list li { padding: 0; }
+.aui .dashboard-list li a {  display:block; padding: 40px; }
+
+
+

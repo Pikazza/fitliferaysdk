@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!DOCTYPE hook PUBLIC "-//Liferay//DTD Hook 6.2.0//EN" "http://www.liferay.com/dtd/liferay-hook_6_2_0.dtd">
+
+<hook>
+    <portal-properties>portal.properties</portal-properties>
+    <struts-action>
+        <struts-action-path>/portal/instagram_redirect</struts-action-path>
+        <struts-action-impl>com.pis.redirectAction.RedirectAction</struts-action-impl>
+    </struts-action>
+<!--         <struts-action>
+        <struts-action-path>/portal/update_password</struts-action-path>
+        <struts-action-impl>com.pis.redirectAction.UpdatepasswordRedirectAction</struts-action-impl>
+    </struts-action>  -->
+</hook>

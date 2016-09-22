@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 6.2.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_6_2_0.dtd">
+<service-builder package-path="com.fiternity">
+	<author>prabakaran</author>
+	<namespace>fiternity</namespace>
+
+	<entity name="Fiternity" local-service="true" remote-service="false">
+	</entity>
+	 <exceptions>
+        <exception>NotFound</exception>
+        <exception>Number</exception>
+        <exception>Null</exception>
+        <exception>SQLGrammer</exception>
+        <exception>Unknown</exception>
+    </exceptions>
+</service-builder>

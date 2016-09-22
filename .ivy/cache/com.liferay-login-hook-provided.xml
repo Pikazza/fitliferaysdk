@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="ivy-report.xsl"?>
+<ivy-report version="1.0">
+	<info
+		organisation="com.liferay"
+		module="login-hook"
+		revision="working@ril003-desktop"
+		conf="provided"
+		confs="default, internal, provided"
+		date="20160401165512"/>
+	<dependencies>
+	</dependencies>
+</ivy-report>

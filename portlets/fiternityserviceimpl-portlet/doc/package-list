@@ -1,0 +1,12 @@
+com.fiternity.adverts.controller
+com.fiternity.beacons.controller
+com.fiternity.challenges.controller
+com.fiternity.customers.controller
+com.fiternity.events.controller
+com.fiternity.moderators.controller
+com.fiternity.notifications.controller
+com.fiternity.rewards.controller
+com.fiternity.service
+com.fiternity.servicecontroller
+com.fiternity.serviceimpl
+com.fiternity.studios.controller

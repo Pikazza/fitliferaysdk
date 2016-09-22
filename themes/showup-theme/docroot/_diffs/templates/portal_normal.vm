@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+
+#parse ($init)
+
+<html class="$root_css_class" dir="#language ("lang.dir")" lang="$w3c_language_id">
+
+<head>
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no"> 
+  <title>$the_title</title>
+  <link href='https://fonts.googleapis.com/css?family=Palanquin:400,100,200,300,500,600,700' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Cabin:400,400italic,500,500italic,600,600italic,700,700italic' rel='stylesheet' type='text/css'>
+
+  	$theme.include($top_head_include)  
+	<script type="text/javascript" src="$javascript_folder/jquery.min.js"></script>
+	<script type="text/javascript" src="$javascript_folder/bootstrap.js"></script>
+	<script type="text/javascript" src="$javascript_folder/jquery-ui.js"></script>
+	<script type="text/javascript" src="$javascript_folder/custom.js"></script>
+	<script type="text/javascript" src="$javascript_folder/custom-dev.js"></script>
+</head>
+
+<body>
+##set ($show_toggle_controls = false)
+
+#if ($roles.toString().contains("Administrator"))   
+  #dockbar()
+  ##set ($show_toggle_controls = false)
+#end
+
+#if ($is_signed_in)
+ 	#if ($layout.name.contains("Login") )
+             <script type="text/javascript">
+                   window.onload=function(){window.location.href = '$theme_display.getPortalURL()/group/$layout.getGroup().getName()/admin-panel';};
+             </script>
+	#end
+
+	<header>
+        <div class="container">
+          <div class="fL logo-block">
+            <a href="$theme_display.getPortalURL()/group/$layout.getGroup().getName()/admin-panel"><img src="$images_folder/showup-admin-images/logo-small.png" alt=""></a>
+          </div>
+          <div class="fR menu-block">
+            <div id="menu-trigger">
+              <span> <!-- menu --> </span>
+              <span> <!-- menu --> </span>
+              <span> <!-- menu --> </span>
+            </div>
+            <div id="navigation">
+              <div id="close-trigger">
+                <span> <!-- menu --> </span>
+                <span> <!-- menu --> </span>
+              </div>
+             
+              <nav>
+                <ul>
+                
+     		##studios    
+ 
+     			#if($roles.toString().contains("Studios Manager") || $roles.toString().contains("Administrator") || $roles.toString().contains("Site Admin"))       
+                  <li>
+                    <a href="$theme_display.getPortalURL()/group/$layout.getGroup().getName()/studios" data-image="$images_folder/showup-admin-images/studio-nav-icon-hover.png">
+                      <span class="nav-icon"><img src="$images_folder/showup-admin-images/studio-nav-icon.png" alt="" /></span>
+                      <span>Studios</span>
+                    </a>
+                  </li>
+                  #end               
+                  #if($roles.toString().contains("Studio Owner"))
+                   <li>
+                    <a href="$theme_display.getPortalURL()/group/$layout.getGroup().getName()/studios?p_auth=AwBJXa59&p_p_id=studios_WAR_fiternityserviceimplportlet&p_p_lifecycle=1&p_p_state=normal&p_p_mode=view&_studios_WAR_fiternityserviceimplportlet_action=showeditStudio&_studios_WAR_fiternityserviceimplportlet_stdid=8" data-image="$images_folder/showup-admin-images/studio-nav-icon-hover.png">
+                      <span class="nav-icon"><img src="$images_folder/showup-admin-images/studio-nav-icon.png" alt="" /></span>
+                      <span>Studios</span>
+                    </a>
+                  </li>
+                  #end
+                  
+       		##moderator  
+       			              
+                 #if($roles.toString().contains("Moderators Manager") || $roles.toString().contains("Administrator") || $roles.toString().contains("Site Admin"))
+                  <li>
+                    <a href="$theme_display.getPortalURL()/group/$layout.getGroup().getName()/moderators" data-image="$images_folder/showup-admin-images/moderator-nav-icon-hover.png">
+                      <span class="nav-icon"><img src="$images_folder/showup-admin-images/moderator-nav-icon.png" alt="" /></span>
+                      <span>Moderators</span>
+                    </a>
+                  </li>
+                  #end 
+                                
+           	##events  
+           		
+           		#if($roles.toString().contains("Events Manager") || $roles.toString().contains("Administrator")|| $roles.toString().contains("Site Admin"))           
+                  <li>
+                    <a href="$theme_display.getPortalURL()/group/$layout.getGroup().getName()/events" data-image="$images_folder/showup-admin-images/event-nav-icon-hover.png">
+                      <span class="nav-icon"><img src="$images_folder/showup-admin-images/event-nav-icon.png" alt="" /></span>
+                      <span>Events</span>
+                    </a>
+                  </li>
+                  #end                   
+                  #if($roles.toString().contains("Studio Owner"))           
+                  <li>
+                    <a href="$theme_display.getPortalURL()/group/$layout.getGroup().getName()/events?p_p_id=events_WAR_fiternityserviceimplportlet&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_events_WAR_fiternityserviceimplportlet_stdid=8" data-image="$images_folder/showup-admin-images/event-nav-icon-hover.png">
+                      <span class="nav-icon"><img src="$images_folder/showup-admin-images/event-nav-icon.png" alt="" /></span>
+                      <span>Events</span>
+                    </a>
+                  </li>
+                  #end         
+                              
+              ##rewards
+               
+          		#if($roles.toString().contains("Rewards Manager") || $roles.toString().contains("Administrator")|| $roles.toString().contains("Site Admin"))            
+                  <li>
+                    <a href="$theme_display.getPortalURL()/group/$layout.getGroup().getName()/rewards" data-image="$images_folder/showup-admin-images/reward-nav-icon-hover.png">
+                      <span class="nav-icon"><img src="$images_folder/showup-admin-images/reward-nav-icon.png" alt="" /></span>
+                      <span>Rewards</span>
+                    </a>
+                  </li>
+                 #end                 
+                #if($roles.toString().contains("Studio Owner"))             
+                  <li>
+                    <a href="$theme_display.getPortalURL()/group/$layout.getGroup().getName()/rewards?p_p_id=rewards_WAR_fiternityserviceimplportlet&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_rewards_WAR_fiternityserviceimplportlet_stdid=8" data-image="$images_folder/showup-admin-images/reward-nav-icon-hover.png">
+                      <span class="nav-icon"><img src="$images_folder/showup-admin-images/reward-nav-icon.png" alt="" /></span>
+                      <span>Rewards</span>
+                    </a>
+                  </li>
+                 #end  
+                 
+          	##challenges 
+          	 
+                #if($roles.toString().contains("Challenges Manager") || $roles.toString().contains("Administrator")|| $roles.toString().contains("Site Admin"))  
+                  <li>
+                    <a href="$theme_display.getPortalURL()/group/$layout.getGroup().getName()/challenges" data-image="$images_folder/showup-admin-images/challenge-nav-icon-hover.png">
+                      <span class="nav-icon"><img src="$images_folder/showup-admin-images/challenge-nav-icon.png" alt="" /></span>
+                      <span>Challenges</span>
+                    </a>
+                  </li>
+                  #end
+                #if($roles.toString().contains("Studio Owner"))  
+                  <li>
+                    <a href="$theme_display.getPortalURL()/group/$layout.getGroup().getName()/challenges?p_p_id=challenges_WAR_fiternityserviceimplportlet&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_challenges_WAR_fiternityserviceimplportlet_stdid=8" data-image="$images_folder/showup-admin-images/challenge-nav-icon-hover.png">
+                      <span class="nav-icon"><img src="$images_folder/showup-admin-images/challenge-nav-icon.png" alt="" /></span>
+                      <span>Challenges</span>
+                    </a>
+                  </li>
+                  #end
+                  
+           ##adverts 
+           
+               #if($roles.toString().contains("Adverts Manager") || $roles.toString().contains("Administrator")|| $roles.toString().contains("Site Admin"))   
+                  <li>
+                    <a href="$theme_display.getPortalURL()/group/$layout.getGroup().getName()/adverts" data-image="$images_folder/showup-admin-images/promos-nav-icon-hover.png">
+                      <span class="nav-icon"><img src="$images_folder/showup-admin-images/promos-nav-icon.png" alt="" /></span>
+                      <span>Beacon Content</span>
+                    </a>
+                  </li>
+                  #end
+                #if($roles.toString().contains("Studio Owner"))  
+                  <li>
+                    <a href="$theme_display.getPortalURL()/group/$layout.getGroup().getName()/adverts?p_p_id=adverts_WAR_fiternityserviceimplportlet&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_adverts_WAR_fiternityserviceimplportlet_stdid=8" data-image="$images_folder/showup-admin-images/promos-nav-icon-hover.png">
+                      <span class="nav-icon"><img src="$images_folder/showup-admin-images/promos-nav-icon.png" alt="" /></span>
+                      <span>Beacon Content</span>
+                    </a>
+                  </li>
+                  #end  
+                  
+                  
+            ##customers 
+                        
+                #if($roles.toString().contains("Customers Manager") || $roles.toString().contains("Administrator") || $roles.toString().contains("Site Admin"))
+                  <li>
+                    <a href="$theme_display.getPortalURL()/group/$layout.getGroup().getName()/customers" data-image="$images_folder/showup-admin-images/user-nav-icon-hover.png">
+                      <span class="nav-icon"><img src="$images_folder/showup-admin-images/user-nav-icon.png" alt="" /></span>
+                      <span>Customers</span>
+                    </a>
+                  </li>
+                  #end 
+                        
+                  
+          ##Beacons 
+                                  
+                 #if( $roles.toString().contains("Administrator")|| $roles.toString().contains("Site Admin"))
+                  <li>
+                    <a href="$theme_display.getPortalURL()/group/$layout.getGroup().getName()/beacons" data-image="$images_folder/showup-admin-images/manage-beacons-menu-hover.png">
+                      <span class="nav-icon"><img src="$images_folder/showup-admin-images/manage-beacons-menu.png" alt="" /></span>
+                      <span>Manage Beacons</span>
+                    </a>
+                  </li>
+                  #end 
+                  
+                   ##Fuels 
+                                  
+                 #if( $roles.toString().contains("Administrator")|| $roles.toString().contains("Site Admin"))
+                  <li>
+                    <a href="$theme_display.getPortalURL()/group/$layout.getGroup().getName()/fuel" data-image="$images_folder/showup-admin-images/fuel-nav-icon-hover.png">
+                      <span class="nav-icon"><img src="$images_folder/showup-admin-images/fuel-nav-icon.png" alt="" /></span>
+                      <span>Fuel</span>
+                    </a>
+                  </li>
+                  #end 
+                  
+         ##Notifications  
+                               
+                #if( $roles.toString().contains("Administrator")|| $roles.toString().contains("Site Admin"))
+                  <li>
+                    <a href="$theme_display.getPortalURL()/group/$layout.getGroup().getName()/manage-content" data-image="$images_folder/showup-admin-images/manage-content-menu-hover.png">
+                      <span class="nav-icon"><img src="$images_folder/showup-admin-images/manage-content-menu.png" alt="" /></span>
+                      <span>Manage Content</span>
+                    </a>
+                  </li>
+                  #end 
+                  
+        ##MailContent 
+                       
+                #if( $roles.toString().contains("Administrator")|| $roles.toString().contains("Site Admin"))
+                  <li>
+                    <a href="$theme_display.getPortalURL()/group/$layout.getGroup().getName()/email-content?p_p_id=notifications_WAR_fiternityserviceimplportlet&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&p_p_col_id=column-1&p_p_col_count=1&_notifications_WAR_fiternityserviceimplportlet_render=showContentListing" data-image="$images_folder/showup-admin-images/manage-email-menu-hover.png">
+                      <span class="nav-icon"><img src="$images_folder/showup-admin-images/manage-email-menu.png" alt="" /></span>
+                      <span>Email Content</span>
+                    </a>
+                  </li>
+                  #end 
+                                       
+                </ul>
+                <form action="$sign_out_url">
+                <button class="button button-fluid button-primary">Sign out</button>
+                </form>
+              </nav>
+
+              
+            </div>
+          </div>
+        </div>
+    </header>    
+#end
+
+
+$theme.include($body_top_include)
+
+##if ($is_signed_in)
+  ##dockbar()
+##end
+
+
+<div id="admin-page">
+    #if ($selectable)
+      $theme.include($content_include)
+    #else
+      $portletDisplay.recycle()
+
+      $portletDisplay.setTitle($the_title)
+
+      $theme.wrapPortlet("portlet.vm", $content_include)
+    #end
+
+</div>
+
+$theme.include($body_bottom_include)
+
+$theme.include($bottom_include)
+
+</body>
+
+</html>

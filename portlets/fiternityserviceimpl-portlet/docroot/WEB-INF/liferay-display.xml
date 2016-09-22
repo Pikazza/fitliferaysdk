@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE display PUBLIC "-//Liferay//DTD Display 6.2.0//EN" "http://www.liferay.com/dtd/liferay-display_6_2_0.dtd">
+
+<display>
+	<category name="category.sample">
+		<portlet id="fiternityserviceimpl" />
+		<portlet id="studios"></portlet>
+		<portlet id="rewards"></portlet>
+		<portlet id="moderators"></portlet>
+		<portlet id="events"></portlet>
+		<portlet id="challenges"></portlet>
+		<portlet id="adverts"></portlet>
+		<portlet id="customers"></portlet>
+		<portlet id="beacons"></portlet>
+		<portlet id="notifications"></portlet>
+		<portlet id="fuels"></portlet>
+	</category>
+</display>
